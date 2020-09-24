@@ -17,15 +17,14 @@ const Pizza = ({pizza, addToCartsFn}) => {
 
   return (
      <div>
-       <div>{pizza.name}</div>
-       <div>${pizza.price}</div>
+       <h4>{pizza.name} (${pizza.price})</h4>
        <div>
-         Ingredients: {pizza.ingredients.map((ingredient) => ingredient+". ")}
+         <strong>Ingredients:</strong> {pizza.ingredients.map((ingredient) => ingredient+". ")}
        </div>
 
-       <button onClick={decrement}> - </button>
-       #{count}
-       <button onClick={increment}> + </button>
+       <button onClick={decrement} className="btn btn-outline-dark"> - </button>
+        Quantity: {count}
+       <button onClick={increment} className="btn btn-outline-dark"> + </button>
        {/* <button onClick={() => setCount(count + 1)}> + </button> */}
        <hr/>
      </div>

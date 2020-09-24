@@ -1,0 +1,7 @@
+// Data is persisted in database:
+// http://localhost:3000/api/v1/orders
+
+// {
+//   "success": true,
+//   "deliveryTime": 2100000
+// }

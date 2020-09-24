@@ -1,0 +1,17 @@
+.app {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.pizza-list {
+  margin: 20px;
+}
+
+.order-summary {
+  margin: 20px;
+}
+
+button {
+  margin: 10px;
+}

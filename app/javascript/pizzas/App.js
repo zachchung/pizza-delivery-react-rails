@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import './App.css';
+import './styles/App.css';
 import data from './server/pizzas.json';
-import orderData from './server/order.json';
+// import orderData from './server/order.json';
 import Pizza from './components/pizza';
 import Cart from './components/cart';
 
@@ -52,12 +52,14 @@ const App = () => {
   const deliveryTime = () => {
     let d = new Date();
     let h = d.getHours();
-    return `${h + 1}0000`;
-    // let m = d.getMinutes();
-    // let s = d.getSeconds();
-    // return `${h + 1}${m}${s}`;
+    if (h < 10)  h = '0'+h;
+    let m = d.getMinutes();
+    if (m < 10)  m = '0'+m;
+    let s = d.getSeconds();
+    if (s < 10)  s = '0'+s;
+    return `${h + 1}${m}${s}`;
   }
-  // Make a POST request to PostBin
+
   const postItem = () => {
     fetch('/api/v1/orders', {
       method: 'POST',
@@ -65,26 +67,27 @@ const App = () => {
       body: JSON.stringify({ "success": true, "deliverytime": deliveryTime() })
       // body: JSON.stringify({ success: true, deliveryTime: deliveryTime() })
     })
+    alert("Thank you! Your order will be delivered in 60 minutes");
+    window.location.href = '/api/v1/orders';
   }
 
   return (
-    <div>
-      <div>
+    <div className="app">
+      <div className="pizza-list">
+        <h1>Welcome to Pizza Delivery App</h1>
         {pizzas.map((pizza) => {
           return <Pizza key={pizza.name} pizza={pizza} addToCartsFn={addToCarts}/>
         })}
       </div>
-      <div>
-        <div>Order Summary</div>
+      <div className="order-summary">
+        <h1>Order Summary</h1>
         {carts.map((item) => {
           totalCost += (item.count * item.price);
           return <Cart key={item.name} cart={item} />
         })}
-        <div>Total cost: ${totalCost}</div>
+        <div><hr/><strong>Total: ${totalCost}</strong></div>
         {/* <Cart cart={cart} /> */}
-      </div>
-      <div>
-        <button onClick={postItem}> Order </button>
+        <button onClick={postItem} className="btn btn-primary"> Confirm Order </button>
       </div>
     </div>
   );
