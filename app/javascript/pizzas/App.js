@@ -29,12 +29,12 @@ const App = () => {
   const deliveryTime = () => {
     let d = new Date();
     let h = d.getHours();
-    if (h < 10)  h = '0'+h;
+    if (h < 9)  h = '0'+ (h + 1);
     let m = d.getMinutes();
     if (m < 10)  m = '0'+m;
     let s = d.getSeconds();
     if (s < 10)  s = '0'+s;
-    return `${h + 1}${m}${s}`;
+    return `${h}${m}${s}`;
   }
 
   const postItem = () => {
