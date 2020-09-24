@@ -1,1 +1,23 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+## Setup & Deployment
+### Tech Stack
+React for the front-end. 
+Ruby on Rails for the back-end.
+
+### Setup
+Clone the project, and run on local machine
+```bash
+bundle install
+yarn install
+```
+
+Once the project is made available on your local machine, create the database in PostgreSQL and populate structure and data.
+```bash
+rails db:create
+rails db:migrate
+```
+
+### Deployment
+Start the application with:
+```bash
+rails s
+```

@@ -5,7 +5,7 @@ const Pizza = ({pizza, addToCartsFn}) => {
 
   const decrement = () => {
     if (count > 0) {
-      setCount(count - 1)
+      setCount(count - 1);
       addToCartsFn(pizza, count - 1);
     }
   }
@@ -25,7 +25,6 @@ const Pizza = ({pizza, addToCartsFn}) => {
        <button onClick={decrement} className="btn btn-outline-dark"> - </button>
         Quantity: {count}
        <button onClick={increment} className="btn btn-outline-dark"> + </button>
-       {/* <button onClick={() => setCount(count + 1)}> + </button> */}
        <hr/>
      </div>
   );
