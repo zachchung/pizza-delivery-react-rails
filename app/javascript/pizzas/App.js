@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './styles/App.css';
+// import './styles/App.css';
 import data from './server/pizzas.json';
 import Pizza from './components/pizza';
 import Cart from './components/cart';
